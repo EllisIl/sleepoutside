@@ -1,7 +1,9 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
+  // The getLocalStorage import is working correctly, but "so-cart" doesn't exist within the utils.mjs file//
   const cartItems = getLocalStorage("so-cart");
+  // The Map function isn't operating properly because getLocalStorage is returning null, which the map function can't work with//
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }

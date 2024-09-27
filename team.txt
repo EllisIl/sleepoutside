@@ -1,0 +1,10 @@
+What did I do since the last meeting?
+Since the last meeting I reviewed over the broken cart card and discussed with my team 
+about solutions and how figured out the problem in the javaScript coding.
+
+What am I going to do next?
+Prepare for week 3 and the next activities with the team and personal Trello Cards.
+
+What are my blockers?
+Blockers from this week were the difficulty with getting things downloaded and making sure 
+gitHub was connecting my repositories to the correct branch.

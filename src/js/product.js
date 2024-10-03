@@ -6,7 +6,7 @@ function addProductToCart(product) {
   if (oldStorage) {
     oldStorage.push(product);
   } else {
-    oldStorage = {product};
+    oldStorage = { product };
   }
   setLocalStorage("so-cart", oldStorage);
 }

@@ -1,4 +1,5 @@
 import { getData, findProductById } from "./productData.mjs";
+import { setLocalStorage } from "./utils.mjs";
 
 export default async function productDetails(productId, selector) { // entrypoint (use this function)
     const productInfo = await findProductById(productId);

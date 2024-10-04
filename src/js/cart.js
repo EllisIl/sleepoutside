@@ -3,11 +3,9 @@ import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
   let cartItems = getLocalStorage("so-cart");
   cartItems = [cartItems];
-  if (cartItems.length > 1) {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
   }
-}
 
 function cartItemTemplate(item) {
   const newItem = `<li class='cart-card divider'>

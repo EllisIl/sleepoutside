@@ -27,7 +27,7 @@ function productDetailsTemplate(product) { // insert the product specifics into 
     document.querySelector("#productNameWithoutBrand").innerHTML = product.NameWithoutBrand;
     document.querySelector("#productImage").src = product.Image;
     document.querySelector("#productFinalPrice").innerHTML = product.FinalPrice;
-    document.querySelector("#productColorName").innerHTML = product.Colors[0].ColorNames;
+    document.querySelector("#productColorName").innerHTML = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;
     document.querySelector("#addToCart").dataset.id = product.Id;
 }

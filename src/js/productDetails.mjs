@@ -16,7 +16,14 @@ async function addToCartHandler(e) {
 function addProductToCart(product) { // from product.js
     let storage = getLocalStorage("so-cart") || [];
 
-    storage.push(product);
+    const existingProduct = storage.find((item) => item.Id === product.Id);
+
+    if (existingProduct) {
+        existingProduct.Quantity += 1;
+    } else {
+        product.Quantity = 1;
+        storage.push(product);
+    }
     
     setLocalStorage("so-cart", storage);
 }

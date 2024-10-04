@@ -19,7 +19,6 @@ function addProductToCart(product) { // from product.js
 
 function productDetailsTemplate(product) { // insert the product specifics into a string of markup
     //name, name without brand, product img , price, color, description
-    console.log(product)
     document.querySelector("#productName").innerHTML = product.Name;
     document.querySelector("#productNameWithoutBrand").innerHTML = product.NameWithoutBrand;
     document.querySelector("#productImage").src = product.Image;

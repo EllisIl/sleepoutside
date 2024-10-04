@@ -1,5 +1,4 @@
 import { getData, findProductById } from "./productData.mjs";
-const productData = await getData(); 
 
 export default async function productDetails(productId, selector) { // entrypoint (use this function)
     const productInfo = await findProductById(productId);

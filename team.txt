@@ -8,3 +8,17 @@ Prepare for week 3 and the next activities with the team and personal Trello Car
 What are my blockers?
 Blockers from this week were the difficulty with getting things downloaded and making sure 
 gitHub was connecting my repositories to the correct branch.
+
+
+
+What did I do since the last meeting?
+Since the last meeting I work on the team activity asynchronously to continuing to learn and understand
+making a page dynamic.
+
+What am I going to do next?
+I will be working on two trello cards to continue making the Sleep Outside webpage more 
+functional and dynamic
+
+What are my blockers?
+As of right now my blockers are understanding mjs and js, and remembering to enter data
+into the termnial in order to make sure the up-to-date code is updated to my local host.

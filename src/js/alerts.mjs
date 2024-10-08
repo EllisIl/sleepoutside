@@ -1,9 +1,9 @@
 import { getData } from './productData.mjs'
 
-const alerts = await getData('alerts');
 const sectionEl = document.querySelector('main');
 
-function findAlert() {
+async function findAlert() {
+    const alerts = await getData('alerts');
     if (alerts.length >= 1){
         const alertEl = document.createElement('section');
         alertEl.classList.add("alert-list");

@@ -228,3 +228,23 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.alert-list p {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  white-space: nowrap;
+  animation: slide-in 1.5s ease-out;
+  padding: 10px;
+  margin: 0;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

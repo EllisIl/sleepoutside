@@ -30,14 +30,20 @@ function addProductToCart(product) { // from product.js
 
 function productDetailsTemplate(product) { // insert the product specifics into a string of markup
     //name, name without brand, product img , price, color, description
+    // get discounted price
+    let discount__amount = Math.floor(((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100) + "%";
     document.querySelector("#productName").innerHTML = product.Name;
     document.querySelector("#productNameWithoutBrand").innerHTML = product.NameWithoutBrand;
     document.querySelector("#productImage").src = product.Image;
-    document.querySelector("#productFinalPrice").innerHTML = product.FinalPrice;
+    document.querySelector("#productFinalPrice").innerHTML = "$" + product.FinalPrice;
     document.querySelector("#productColorName").innerHTML = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;
     document.querySelector("#addToCart").dataset.id = product.Id;
+    document.querySelector("#suggestedRetailPrice").innerHTML = "$" + product.SuggestedRetailPrice;
+    document.querySelector("#discountAmount").innerHTML = discount__amount + " OFF";
 }
+
+
 
 
 // add listener to Add to Cart button

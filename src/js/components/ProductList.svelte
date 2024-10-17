@@ -1,13 +1,12 @@
 <script>
     import { getData } from "../productData.mjs"
-    
     export let category;
 
     let promise = getData(category);
 </script>
 
 <h2>Top product: {category}</h2>
-{#await promise}
+{#await promise} 
     Loading
 {:then products}
 <ul class="product-list">
@@ -26,3 +25,4 @@
     {/each}
 </ul>
 {/await}
+

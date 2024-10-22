@@ -1,5 +1,7 @@
 import { getData, findProductById } from "./productData.mjs";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { cartCount } from  "./stores.mjs";
+
 
 export default async function productDetails(productId, selector) { // entrypoint (use this function)
     const productInfo = await findProductById(productId);

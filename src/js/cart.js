@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, renderHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, renderHeaderFooter, updateCartCount } from "./utils.mjs";
 
 function renderCartContents() {
   let cartItems = getLocalStorage("so-cart");
@@ -70,7 +70,12 @@ function decreaseItemQuantity(itemId) {
   }
 
   // re-render the cart to reflect the changes
+  let cartCount = 0;
+  cartItems.forEach(item => {
+    cartCount += item.Quantity;
+  });
   renderCartContents();
+  updateCartCount(cartCount);
 }
 
 function showCartTotal(cartItems) {

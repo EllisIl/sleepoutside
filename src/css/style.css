@@ -141,6 +141,16 @@ button {
 .products {
   padding: 0.5em;
 }
+
+.product-icons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+}
+
 .product-list {
   display: flex;
   flex-flow: row wrap;

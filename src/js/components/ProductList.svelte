@@ -10,7 +10,7 @@
     Loading
 {:then products}
 <ul class="product-list">
-    {#each products.slice(0, 4) as product}
+    {#each products as product}
     <li class="product-card">
         <a href="product_pages/product.html?product={product.Id}">
             <img

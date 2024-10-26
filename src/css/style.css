@@ -145,7 +145,6 @@ button {
 .product-icons{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 400px;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
@@ -243,6 +242,7 @@ button {
   display: block;
 }
 
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -279,5 +279,40 @@ footer {
   }
   100% {
     transform: translateY(0%);
+  }
+}
+
+@media only screen and (min-device-width: 400px) {
+
+  .product-icons img{
+      width: 50%;
+      min-width: 95.31px;
+      height: auto;
+  }
+}
+
+@media only screen and (min-device-width: 700px) {
+
+  .product-icons img{
+      width: 50%;
+      height: auto;
+  }
+
+  .hero img{
+    width: 50%;
+    height: auto;
+  }
+}
+
+@media only screen and (min-device-width: 1000px) {
+
+  .product-icons img{
+      width: 100%;
+      height: auto;
+  }
+
+  .hero img{
+    width: 100%;
+    height: auto;
   }
 }

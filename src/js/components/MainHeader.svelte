@@ -1,6 +1,5 @@
  <script>
     import { cartCount } from "../stores.mjs";
-    console.log(cartCount);
  </script>
     <div class="logo">
       <img src="../images/noun_Tent_2517.svg" alt="tent for logo" />

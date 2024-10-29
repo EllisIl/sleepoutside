@@ -47,9 +47,7 @@ export function getCartCount() {
   let num = 0;
   cart.forEach(item => {
     num += item.Quantity;
-    console.log(item);
   });
-  console.log(num);
   return num;
 }
 

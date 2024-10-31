@@ -3,7 +3,7 @@
  </script>
     <div class="logo">
       <img src="../images/noun_Tent_2517.svg" alt="tent for logo" />
-      <a href="index.html"> Sleep<span class="highlight">Outside</span></a>
+      <a href="../index.html"> Sleep<span class="highlight">Outside</span></a>
     </div>
     <div class="cart">
       <a href="../cart/index.html">
@@ -30,6 +30,6 @@
           <!-- <text x="0" y="115" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by Natalia Woodroffe</text>
           <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
         </svg>
-        <sup class="cart-count">{cartCount}</sup>
+        <sup id="cart-count" class="cart-count">{cartCount > 0 ? cartCount : ''}</sup>
       </a>
     </div>

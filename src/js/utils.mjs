@@ -43,5 +43,21 @@ export function renderHeaderFooter() {
 }
 
 export function getCartCount() {
-  return getLocalStorage('cartCount')
+  let cart = getLocalStorage('so-cart');
+  let num = 0;
+  cart.forEach(item => {
+    num += item.Quantity;
+  });
+  return num;
+}
+
+export function updateCartCount(cartCount) {
+  const cartCountElement = document.getElementById('cart-count');
+
+  // Update the content only if cartCount is greater than 0
+  if (cartCount > 0) {
+    cartCountElement.textContent = cartCount;
+  } else {
+    cartCountElement.textContent = '';
+  }
 }

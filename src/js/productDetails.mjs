@@ -1,6 +1,5 @@
-import { getData, findProductById } from "./productData.mjs";
+import { findProductById } from "./productData.mjs";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { cartCount } from  "./stores.mjs";
 
 
 export default async function productDetails(productId, selector) { // entrypoint (use this function)
@@ -58,7 +57,7 @@ function productDetailsTemplate(product) { // insert the product specifics into 
     let discount__amount = Math.floor(((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100) + "%";
     document.querySelector("#productName").innerHTML = product.Name;
     document.querySelector("#productNameWithoutBrand").innerHTML = product.NameWithoutBrand;
-    document.querySelector("#productImage").src = product.Image;
+    document.querySelector("#productImage").src = product.Images.PrimaryLarge;
     document.querySelector("#productFinalPrice").innerHTML = "$" + product.FinalPrice;
     document.querySelector("#productColorName").innerHTML = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;

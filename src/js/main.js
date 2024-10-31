@@ -3,6 +3,6 @@ import { renderHeaderFooter, getParam } from "./utils.mjs";
 
 new ProductList({
   target: document.querySelector(".products"),
-  prop: { category: getParam("category") },
+  props: { category: getParam("category") },
 });
 renderHeaderFooter();

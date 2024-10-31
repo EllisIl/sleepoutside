@@ -1,9 +1,12 @@
  <script>
     import { cartCount } from "../stores.mjs";
+    import { findAlert } from "../alerts.mjs";
+    findAlert();
  </script>
     <div class="logo">
       <img src="../images/noun_Tent_2517.svg" alt="tent for logo" />
       <a href="../index.html"> Sleep<span class="highlight">Outside</span></a>
+      
     </div>
     <div class="cart">
       <a href="../cart/index.html">

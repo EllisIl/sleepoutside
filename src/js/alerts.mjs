@@ -1,9 +1,8 @@
-import { getData } from './productData.mjs'
+export async function findAlert() {
+    const sectionEl = document.querySelector('main');
+    const alertsJson = await fetch('../json/alerts.json');
+    const alerts = await alertsJson.json();
 
-const sectionEl = document.querySelector('main');
-
-async function findAlert() {
-    const alerts = await getData('alerts');
     if (alerts.length >= 1){
         const alertEl = document.createElement('section');
         alertEl.classList.add("alert-list");
@@ -17,5 +16,3 @@ async function findAlert() {
         sectionEl.prepend(alertEl);
     }
 }
-
-findAlert();

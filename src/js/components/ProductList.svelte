@@ -3,6 +3,7 @@
     export let category;
 
     let promise = getData(category);
+
 </script>
 
 <h2>Top product: {category}</h2>
@@ -12,9 +13,9 @@
 <ul class="product-list">
     {#each products as product}
     <li class="product-card">
-        <a href="product_pages/product.html?product={product.Id}">
+        <a href="/product_pages/product.html?product={product.Id}">
             <img
-              src={product.Image}
+              src={product.Images.PrimaryMedium}
               alt={product.Name}
             />
             <h3 class="card__brand">{product.Brand.Name}</h3>

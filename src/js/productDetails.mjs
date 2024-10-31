@@ -1,5 +1,5 @@
 import { findProductById } from "./productData.mjs";
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, updateCartCount } from "./utils.mjs";
 
 
 export default async function productDetails(productId, selector) { // entrypoint (use this function)
@@ -32,11 +32,28 @@ export default async function productDetails(productId, selector) { // entrypoin
 
 // add to cart button event handler
 async function addToCartHandler(e) {
+    const button = document.querySelector("#addToCart");
+    
+    // Change button state to indicate processing
+    button.disabled = true;
+    button.innerHTML = "Item Added!";
+    button.style.opacity = "0.5"; // Gray out button
+
+    // Simulate adding item to cart
     const product = await findProductById(e.target.dataset.id);
     addProductToCart(product);
+
+    // Revert button to original state after a short delay
+    setTimeout(() => {
+        button.innerHTML = "Add to Cart";
+        button.style.opacity = "1"; // Reset opacity
+        button.disabled = false;
+    }, 1000); // 1-second delay
 }
+
   
 function addProductToCart(product) { // from product.js
+
     let storage = getLocalStorage("so-cart") || [];
 
     const existingProduct = storage.find((item) => item.Id === product.Id);
@@ -47,7 +64,13 @@ function addProductToCart(product) { // from product.js
         product.Quantity = 1;
         storage.push(product);
     }
+
+    let cartCount = 0;
+    storage.forEach(item => {
+        cartCount += item.Quantity;
+    });
     
+    updateCartCount(cartCount);
     setLocalStorage("so-cart", storage);
 }
 

@@ -33,14 +33,14 @@ function cartItemTemplate(item) {
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: ${item.Quantity}</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
-  <span class="remove-item" data-id="${item.Id}">X</span>
+  <button id="removeItem" data-id="${item.Id}">X</button>
 </li>`;
 
   return newItem;
 }
 
 function attachRemoveItemListeners() {
-  const removeButtons = document.querySelectorAll(".remove-item");
+  const removeButtons = document.querySelectorAll("#removeItem");
 
   removeButtons.forEach((button) => {
     button.addEventListener("click", (event) => {

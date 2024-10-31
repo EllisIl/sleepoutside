@@ -81,7 +81,7 @@ header {
   color: var(--tertiary-color);
 }
 
-button {
+#addToCart {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -89,7 +89,10 @@ button {
   display: block;
   border: 0;
   font-size: var(--large-font);
+}
+#addToCart:hover {
   cursor: pointer;
+  background-color: var(--tertiary-color);
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
@@ -277,6 +280,17 @@ footer {
   width: 100px;
   display: flex;
   align-self: center;
+}
+
+#removeItem {
+  background-color: red;
+  width: 40px;
+  height: 40px;
+}
+
+#removeItem:hover {
+  background-color: darkred;
+  cursor: pointer;
 }
 
 @keyframes slide-in {

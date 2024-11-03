@@ -1,5 +1,7 @@
 import MainFooter from "./components/MainFooter.svelte";
 import MainHeader from "./components/MainHeader.svelte";
+const baseURL = import.meta.env.VITE_SERVER_URL;
+
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -43,7 +45,7 @@ export function renderHeaderFooter() {
 }
 
 export function getCartCount() {
-  let cart = getLocalStorage('so-cart');
+  let cart = getLocalStorage('so-cart') || [];
   let num = 0;
   cart.forEach(item => {
     num += item.Quantity;
@@ -60,4 +62,26 @@ export function updateCartCount(cartCount) {
   } else {
     cartCountElement.textContent = '';
   }
+}
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
+}
+
+export async function checkout(payload) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  };
+  return await fetch(baseURL + "checkout/", options).then(convertToJson);
 }

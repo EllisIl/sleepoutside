@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <header class="divider"></header>
+    <header class="divider">
+    </header>
     <main class="divider">
       <div class="hero">
         <img
@@ -29,6 +30,24 @@
           comfortably at an affordable price.
         </p>
       </section>
+      <section class="product-list-container">
+        <section class="product-list-search">
+          <form id="searchForm">
+            <label>
+              <input type="text" id="searchInput" placeholder="Search for products..." required>
+            </label>
+            <button type="submit">Search</button>
+          </form>
+        </section>
+        <section class="product-list-sort">
+          <label for="sortOptions">Sort by:</label>
+          <select id="sortOptions">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+          </select>
+        </section>
+      </section>
+      
       <div class="products"></div>
     </main>
     <footer></footer>

@@ -155,6 +155,16 @@ header {
   text-decoration: none;
   color: var(--dark-grey);
 }
+
+.product-list-container {
+  display: flex; 
+}
+
+.product-list-search,
+.product-list-sort {
+  padding: 10px;
+}
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;

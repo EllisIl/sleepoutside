@@ -1,5 +1,5 @@
 <script>
-  import { getLocalStorage, formDataToJSON, checkout, renderHeaderFooter } from "../utils.mjs";
+  import { getLocalStorage, formDataToJSON, checkout } from "../utils.mjs";
   // props
   export let key = "";
 

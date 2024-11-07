@@ -228,6 +228,14 @@ input[type=submit]:hover {
   width: 100%;
 }
 
+.product-card img {
+    max-width: 100%;
+    min-width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+
 .suggested-retail__price {
   text-decoration: line-through;
 }

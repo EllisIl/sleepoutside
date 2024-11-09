@@ -81,6 +81,18 @@ function productDetailsTemplate(product) { // insert the product specifics into 
     document.querySelector("#productName").innerHTML = product.Name;
     document.querySelector("#productNameWithoutBrand").innerHTML = product.NameWithoutBrand;
     document.querySelector("#productImage").src = product.Images.PrimaryLarge;
+    if (product.Images.ExtraImages == true) {
+        product.Images.ExtraImages.foreach(ExtraImage => {
+            const imageCarousel = document.getElementById("imageCarousel");
+            const newImage = document.createElement("img");
+            newImage.setAttribute("src", ExtraImage.Src);
+            newImage.setAttribute("alt", ExtraImage.Title);
+            
+            imageCarousel.appendChild(newImage);
+        });
+    } else {
+
+    }
     document.querySelector("#productFinalPrice").innerHTML = "$" + product.FinalPrice;
     document.querySelector("#productColorName").innerHTML = product.Colors[0].ColorName;
     document.querySelector("#productDescriptionHtmlSimple").innerHTML = product.DescriptionHtmlSimple;

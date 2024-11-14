@@ -145,7 +145,7 @@ header {
 form {
   margin: 0 auto;
   text-align: center;
-  width: 45rem;
+  width: 30rem;
   border: 10px solid #f1f1f1;
   border-radius: 10px;
   color: #303030
@@ -156,12 +156,12 @@ form {
   background-color: #f1f1f1;
 }
 
-input[type=text], input[type=submit] {
+input[type=text], input[type=submit], input[type=password] {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
   display: inline-block;
-  border: 2px solid #ccc;
+  border: 2px solid #cccccc;
   border-radius: 10px;
   box-sizing: border-box;
 }

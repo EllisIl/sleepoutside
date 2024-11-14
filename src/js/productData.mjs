@@ -8,7 +8,7 @@ function convertToJson(res) { // NOT EXPORTED
   }
 }
 
-export async function getData(category) {
+export async function getProductsByCategory(category) {
   try{
   const response = await fetch(baseURL + `products/search/${category}`);
   const data = await convertToJson(response);
@@ -16,7 +16,6 @@ export async function getData(category) {
   catch(error){
     console.log(error)
   }
-  
 }
 
 export async function findProductById(id) { // Can be used for more than tents

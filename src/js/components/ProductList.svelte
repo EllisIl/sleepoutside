@@ -1,8 +1,8 @@
 <script>
-    import { getData } from "../productData.mjs"
+    import { getProductsByCategory } from "../productData.mjs"
     export let category;
 
-    let promise = getData(category);
+    let promise = getProductsByCategory(category);
 
 </script>
 

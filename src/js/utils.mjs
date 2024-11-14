@@ -83,5 +83,26 @@ export async function checkout(payload) {
     },
     body: JSON.stringify(payload),
   };
-  return await fetch(baseURL + "checkout/", options).then(convertToJson);
+  return await fetch(baseURL, options).then(convertToJson);
 }
+
+export function alertMessage(message, scroll = true, duration = 3000) {
+  const alert = new AlertMessage({
+      target: document.querySelector("body"),
+      anchor: document.querySelector("main"),
+      props: {
+      message,
+      },
+  });
+  // make sure they see the alert by scrolling to the top of the window
+  //we may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.
+  if (scroll) window.scrollTo(0, 0);
+
+  document.body.prepend(alert);
+  
+  // left this here to show how you could remove the alert automatically after a certain amount of time.
+  // setTimeout(function () {
+  //   alert.$destroy();
+  // }, duration);
+  }
+              

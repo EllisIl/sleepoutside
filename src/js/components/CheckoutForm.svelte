@@ -1,5 +1,6 @@
 <script>
-  import { getLocalStorage, formDataToJSON, checkout } from "../utils.mjs";
+  import { getLocalStorage, formDataToJSON } from "../utils.mjs";
+  import { checkout } from "../externalServices.mjs";
   // props
   export let key = "";
 
@@ -44,22 +45,31 @@
     });
     return simplifiedItems;
   };
-  const handleSubmit = async function (e) {
-    const json = formDataToJSON(this);
-    // add totals, and item details
-    json.orderDate = new Date();
-    json.orderTotal = orderTotal;
-    json.tax = tax;
-    json.shipping = shipping;
-    json.items = packageItems(list);
-    console.log(json);
-    try {
-      const res = await checkout(json);
-      console.log(res);
-    } catch (err) {
-      console.log(err);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    var myForm = document.forms[0];
+    var chk_status = myForm.checkValidity();
+    if (chk_status) {
+      const json = formDataToJSON(this);
+      handleCheckout(json);
     }
   };
+
+  async function handleCheckout(json) {
+    json.orderDate = new Date();
+      json.orderTotal = orderTotal;
+      json.tax = tax;
+      json.shipping = shipping;
+      json.items = packageItems(list);
+      console.log(json);
+      try {
+        const res = await checkout(json);
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+      }
+  }
   // initial setup
   init();
 </script>
@@ -68,36 +78,38 @@
   <fieldset>
     <legend>Shipping</legend>
     <div class="checkout__name">
-      <label for="fname">First Name</label>
-      <input name="fname" required />
-      <label for="lname">Last Name</label>
-      <input name="lname" required />
+      <label for="fname">First Name*</label>
+      <input name="fname" required pattern="[A-Za-z]+" value="John"/>
+      <label for="lname">Last Name*</label>
+      <input name="lname" required pattern="[A-Za-z]+" value="Doe"/>
     </div>
     <div class="checkout__address">
-      <label for="street">Street</label>
-      <input name="street" required />
-      <label for="city">City</label>
-      <input name="city" required />
-      <label for="state">State</label>
-      <input name="state" required />
-      <label for="zip">Zip</label>
-      <input name="zip" id="zip" required on:blur={calculateOrdertotal} />
+      <label for="street">Street*</label>
+      <input name="street" required pattern="[A-Za-z0-9]+" value="Street"/>
+      <label for="city">City*</label>
+      <input name="city" required pattern="[A-Za-z]+" value="city"/>
+      <label for="state">State*</label>
+      <input name="state" required pattern="[A-Z]+" value="ST"/>
+      <label for="zip">Zip*</label>
+      <input name="zip" id="zip" required pattern="[0-9]+" on:blur={calculateOrdertotal} value="83440"/>
     </div>
   </fieldset>
   <fieldset>
     <legend>Payment</legend>
-    <label for="cardNumber">Card number</label>
+    <label for="cardNumber">Card number*</label>
     <input
       name="cardNumber"
+      value="1234123412341234"
       required
       placeholder="No spaces or dashes!"
       maxlength="16"
       minlength="16"
+      pattern="[0-9]+"
     />
-    <label for="expiration">Expiration</label>
-    <input name="expiration" required placeholder="mm/yy" />
-    <label for="code">Security Code</label>
-    <input name="code" required placeholder="xxx" maxlength="3" minlength="3" />
+    <label for="expiration">Expiration*</label>
+    <input name="expiration" required placeholder="mm/yy" pattern="([0-9]+{2})/([0-9]+{2})" value="10/26"/>
+    <label for="code">Security Code*</label>
+    <input name="code" required placeholder="xxx" maxlength="3" minlength="3" pattern="[0-9]+" />
   </fieldset>
   <fieldset class="checkout-summary">
     <legend>Order Summary</legend>
@@ -149,4 +161,5 @@
     justify-content: space-between;
     align-items: center;
   }
+
 </style>

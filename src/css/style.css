@@ -246,6 +246,17 @@ input[type=submit]:hover {
     display:block;
 }
 
+.discount-flag {
+  display: inline-block;
+  background-color: #FF6347; 
+  color: white;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
 .suggested-retail__price {
   text-decoration: line-through;
 }

@@ -74,7 +74,7 @@ function addProductToCart(product) { // from product.js
     setLocalStorage("so-cart", storage);
 }
 
-function productDetailsTemplate(product) { // insert the product specifics into a string of markup
+export function productDetailsTemplate(product) { // insert the product specifics into a string of markup
     //name, name without brand, product img , price, color, description
     // get discounted price
     let discount__amount = Math.floor(((product.SuggestedRetailPrice - product.FinalPrice) / product.SuggestedRetailPrice) * 100) + "%";

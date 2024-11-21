@@ -1,10 +1,9 @@
 <script>
-   import { getData } from "../productData.mjs";
-    import productDetailsTemplate from "../productDetails.mjs";
+    import { getProductsByCategory } from "../productData.mjs"
     export let category;
 
     // Fetch the products based on the category
-    let promise = getData(category);
+    let promise = getProductsByCategory(category);
 </script>
 
 <h2>Top product: {category}</h2>
